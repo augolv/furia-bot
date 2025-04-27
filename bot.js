@@ -1,6 +1,7 @@
 require("dotenv").config();
 
 const TelegramBot = require("node-telegram-bot-api");
+const data = require("./data/mockData");
 const token = process.env.TELEGRAM_TOKEN;
 const bot = new TelegramBot(token, { polling: true });
 
@@ -24,6 +25,6 @@ bot.onText(/\/menu/, (msg) => {
     /streamers - Nossos streamers
     /loja - Loja oficial
     💰 Complete ações pra ganhar FURIA Cash!
-    ⚠ FuriaBot em beta, pode ter uns bugs!`
+    ⚠ FuriaBot em beta, pode ter uns bugs! ⚠`
   );
 });
