@@ -28,3 +28,13 @@ bot.onText(/\/menu/, (msg) => {
     ⚠ FuriaBot em beta, pode ter uns bugs! ⚠`
   );
 });
+
+bot.onText(/\/calendario/, (msg) => {
+  const jogos = data.agenda.map((jogo) => `🗓️ ${jogo.date} - ${jogo.time} - ${jogo.teams} - ${jogo.event}`);
+  bot.sendMessage(msg.chat.id, `🔥 Próximos jogos da Fúria:\n\n${jogos.join("\n\n")}`);
+});
+
+bot.onText(/\/resultados/, (msg) => {
+  const resultados = data.resultados.map((resultado) => `🗓️ ${resultado.date} - ${resultado.teams} - ${resultado.map}`);
+  bot.sendMessage(msg.chat.id, `🔥 Resultados recentes:\n\n${resultados.join("\n\n")}`);
+});
