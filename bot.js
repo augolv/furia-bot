@@ -38,3 +38,13 @@ bot.onText(/\/resultados/, (msg) => {
   const resultados = data.resultados.map((resultado) => `🗓️ ${resultado.date} - ${resultado.teams} - ${resultado.map}`);
   bot.sendMessage(msg.chat.id, `🔥 Resultados recentes:\n\n${resultados.join("\n\n")}`);
 });
+
+bot.onText(/\/curiosidade/, (msg) => {
+  const curiosidade = data.curiosidades[Math.floor(Math.random() * data.curiosidades.length)];
+  bot.sendMessage(msg.chat.id, `🔥 Curiosidade: ${curiosidade}`);
+});
+
+bot.onText(/\/dica/, (msg) => {
+  const dica = data.dicas[Math.floor(Math.random() * data.dicas.length)];
+  bot.sendMessage(msg.chat.id, `🔥 Dica: ${dica}`);
+});
