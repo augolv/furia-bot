@@ -81,10 +81,9 @@ bot.on("message", (msg) => {
 
   if (msg.text && !msg.text.startsWith("/") && !msg.reply_markup) {
     if (!checkCooldown(chatId)) return;
-    const cash = addFuriaCash(chatId, 0.1);
     bot.sendMessage(
       chatId,
-      `É braba! 😎 /menu\n\n💰 Ganhou $0,10 FURIA Cash! Saldo: $${cash.toFixed(2)}\n⚠ FuriaBot em beta, pode ter uns bugs!`,
+      `Opa, pantera! 🐾 Tô em beta e só respondo comandos por enquanto. Bora detonar com /menu? 😎\n\n⚠ FuriaBot em beta, pode ter uns bugs!`,
       getBackButton(chatId)
     );
   }

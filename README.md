@@ -59,10 +59,10 @@ Inicie o bot localmente:
 ```bash
 cd furia-bot
 npm install
-node bot.js
+npm start
 ```
 
-Acesse o Telegram, busque pelo seu bot (ex.: @FuriaBot) e digite `/start` para começar!
+Acesse o Telegram, busque pelo seu bot (ex.: @AugFuriaBot) e digite `/start` para começar!
 
 <h2 id="commands">📍 Comandos do Bot</h2>
 
