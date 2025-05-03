@@ -1,14 +1,16 @@
 require("dotenv").config();
-
+const express = require("express");
 const TelegramBot = require("node-telegram-bot-api");
-const data = require("./data/mockData");
+const data = require("../data/mockData");
+
+const app = express();
+app.use(express.json());
+
 const token = process.env.TELEGRAM_TOKEN;
-const bot = new TelegramBot(token, { polling: true });
+const bot = new TelegramBot(token, { polling: false });
 
 const furiaCash = new Map();
-
 const quizState = new Map();
-
 const cooldowns = new Map();
 
 function checkCooldown(chatId) {
@@ -235,3 +237,16 @@ bot.onText(/\/loja/, (msg) => {
     getBackButton(chatId)
   );
 });
+
+// Configurar Webhook para Vercel
+app.post("/bot", (req, res) => {
+  bot.processUpdate(req.body);
+  res.status(200).send("OK");
+});
+
+// Rota para verificar o status
+app.get("/health", (req, res) => {
+  res.status(200).send("Bot está rodando!");
+});
+
+module.exports = app;
