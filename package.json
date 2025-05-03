@@ -1,15 +1,18 @@
 {
   "name": "furia-bot",
   "version": "1.0.0",
-  "main": "index.js",
+  "description": "FuriaBot para Telegram, deployado na Vercel",
+  "main": "api/bot.js",
   "scripts": {
-    "start": "node --watch bot.js"
+    "start": "node api/bot.js",
+    "vercel-dev": "vercel dev"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "dotenv": "^16.5.0",
-    "node-telegram-bot-api": "^0.66.0"
+    "express": "^4.18.2",
+    "node-telegram-bot-api": "^0.66.0",
+    "dotenv": "^16.4.5"
+  },
+  "devDependencies": {
+    "vercel": "^34.2.7"
   }
 }
