@@ -71,10 +71,25 @@ const quiz = [
   },
 ];
 
+const streamers = [
+  "Brino: https://www.twitch.tv/brino",
+  "Cris Guedes: https://www.twitch.tv/crisguedes",
+  "Ivd Maluco: https://www.twitch.tv/ivdmaluco",
+  "Manel: https://www.twitch.tv/omanelzin_",
+  "Murillo: https://www.twitch.tv/murillomellobr",
+  "Noobzim: https://www.twitch.tv/noooobzim",
+  "Paula Nobre: https://www.twitch.tv/paulanobre",
+  "Pokiz: https://www.twitch.tv/pOkizGames",
+  "Rafinha: https://www.twitch.tv/raf1nhafps",
+  "Sofia Espanha: https://www.twitch.tv/sofiaespanha/",
+  "Thiago sem T: https://www.twitch.tv/thiagosemtlives, https://www.youtube.com/@thiagosemt",
+  "Xarola: https://www.twitch.tv/xarola_",
+];
 module.exports = {
   agenda,
   resultados,
   curiosidades,
   dicas,
   quiz,
+  streamers,
 };

@@ -214,7 +214,7 @@ bot.onText(/\/dica/, (msg) => {
 bot.onText(/\/streamers/, (msg) => {
   const chatId = msg.chat.id;
   if (!checkCooldown(chatId)) return;
-  const streamers = ["Brino: https://twitch.tv/brino", "Paula Nobre: https://twitch.tv/paulanobre", "Rafinha: https://twitch.tv/raf1nhafps"];
+  const streamers = data.streamers;
   const cash = addFuriaCash(chatId, 0.1);
   bot.sendMessage(
     chatId,
