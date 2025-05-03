@@ -8,7 +8,7 @@
 </p>
 
 <p align="center">
-    <b>FuriaBot é um chatbot no Telegram que engaja fãs do time de Counter-Strike da Fúria com informações sobre jogos, quizzes interativos, dicas de CS e links para streamers e loja oficial. Desenvolvido para o desafio "Experiência Conversacional" da Fúria.</b>
+    <b>FuriaBot é um chatbot no Telegram que engaja fãs do time de Counter-Strike da Fúria com informações sobre jogos, quizzes interativos, dicas de CS e links para streamers e loja oficial. Desenvolvido para o desafio "Experiência Conversacional" da Fúria. O bot está hospedado em produção na Vercel e acessível via Telegram!</b>
 </p>
 
 <h2 id="tech">💻 Tecnologias</h2>
@@ -16,16 +16,26 @@
 - **Backend**:
   - Node.js
   - node-telegram-bot-api
+  - express
   - dotenv
 - **Ferramentas**:
   - Git
   - npm
+  - Vercel
 
 <h2 id="started">🚀 Como Começar</h2>
 
-Aqui estão as instruções para rodar o FuriaBot localmente na sua máquina.
+Aqui estão as instruções para rodar o FuriaBot localmente na sua máquina ou acessar a versão em produção.
 
-<h3>Pré-requisitos</h3>
+<h3>Acessando o Bot em Produção</h3>
+
+O FuriaBot está hospedado na Vercel e disponível no Telegram:
+
+- **Telegram**: Acesse o bot em [https://web.telegram.org/k/#@AugFuriaBot](https://web.telegram.org/k/#@AugFuriaBot).
+- **Status**: Verifique se o bot está ativo em [https://furia-bot-tau.vercel.app/health](https://furia-bot-tau.vercel.app/health).
+- Digite `/start` no Telegram para começar!
+
+<h3>Pré-requisitos (para rodar localmente)</h3>
 
 - [Node.js](https://nodejs.org/) (v16 ou superior recomendado)
 - [Git](https://git-scm.com/)
@@ -54,12 +64,18 @@ TELEGRAM_TOKEN=SUA_CHAVE_DO_BOT
 
 <h3>Iniciando o Bot</h3>
 
-Inicie o bot localmente:
+Inicie o bot localmente (usando polling):
 
 ```bash
 cd furia-bot
 npm install
 npm start
+```
+
+**Nota**: A versão em produção na Vercel usa Webhooks para maior eficiência. Para testar Webhooks localmente, configure um túnel como [ngrok](https://ngrok.com/) e atualize o Webhook via:
+
+```bash
+curl -X POST "https://api.telegram.org/bot<SUA_CHAVE_DO_BOT>/setWebhook?url=https://sua-url-ngrok/bot"
 ```
 
 Acesse o Telegram, busque pelo seu bot (ex.: @AugFuriaBot) e digite `/start` para começar!
@@ -87,6 +103,7 @@ Abaixo estão os principais comandos do FuriaBot e exemplos de interações. Cad
 ```plaintext
 🐾 Fala, guerreiro(a)! Sou o FuriaBot da FURIA! 🔥
 Quer saber do próximo jogo ou detonar num quiz? Digite /menu
+💰 Ganhou $0,10 FURIA Cash! Saldo: $0.10
 ⚠ FuriaBot em beta, pode ter uns bugs!
 ```
 
@@ -122,7 +139,7 @@ Quer saber do próximo jogo ou detonar num quiz? Digite /menu
 ⚔ FURIA vs LOUD
 🏆 Major Qualifier
 
-💰 Ganhou $0,10 FURIA Cash! Saldo: $0,10
+💰 Ganhou $0,10 FURIA Cash! Saldo: $0.10
 ⚠ FuriaBot em beta, pode ter uns bugs!
 ```
 
@@ -141,7 +158,7 @@ Quer saber do próximo jogo ou detonar num quiz? Digite /menu
 ⚔ FURIA 0 x 2 Imperial
 🗺 Mapa: Nuke
 
-💰 Ganhou $0,10 FURIA Cash! Saldo: $0,20
+💰 Ganhou $0,10 FURIA Cash! Saldo: $0.20
 ⚠ FuriaBot em beta, pode ter uns bugs!
 ```
 
@@ -150,8 +167,9 @@ Quer saber do próximo jogo ou detonar num quiz? Digite /menu
 **RESPOSTA**
 
 ```plaintext
-🧠 Curiosidade: KSCERATO é o rei dos clutches em Majors! 🔥
-💰 Ganhou $0,10 FURIA Cash! Saldo: $0,30
+🧠 Curiosidade: FalleN é o IGL lendário que guia a FURIA com estratégias brabas! 🏆
+
+💰 Ganhou $0,10 FURIA Cash! Saldo: $0.70
 ⚠ FuriaBot em beta, pode ter uns bugs!
 ```
 
@@ -160,12 +178,12 @@ Quer saber do próximo jogo ou detonar num quiz? Digite /menu
 **RESPOSTA**
 
 ```plaintext
-🎮 Quiz da FURIA! Responda com A, B ou C:
+🎮 Quiz da FURIA! (2/3)
 
-1. Quem é o IGL da Fúria?
+Quem é o IGL da FURIA em 2025?
 A) KSCERATO
-B) arT
-C) yuurih
+B) FalleN
+C) molodoy
 
 [Botões interativos: A | B | C]
 ```
@@ -173,8 +191,9 @@ C) yuurih
 **RESULTADO FINAL**
 
 ```plaintext
-3/3! Você é uma pantera do CS! 🐆
-💰 Ganhou $0,10 FURIA Cash! Saldo: $0,40
+🎮 Fim do Quiz! Você acertou 3/3! É uma pantera! 🐆
+
+💰 Ganhou $0.30 FURIA Cash! Saldo: $1.10
 ⚠ FuriaBot em beta, pode ter uns bugs!
 ```
 
@@ -183,8 +202,9 @@ C) yuurih
 **RESPOSTA**
 
 ```plaintext
-💡 Dica de CS: Treine smokes na Mirage pra controlar o mid! 💣
-💰 Ganhou $0,10 FURIA Cash! Saldo: $0,50
+💡 Dica de CS: Comunique sempre com seu time pra coordenar jogadas! 📡
+
+💰 Ganhou $0,10 FURIA Cash! Saldo: $1.40
 ⚠ FuriaBot em beta, pode ter uns bugs!
 ```
 
@@ -194,10 +214,20 @@ C) yuurih
 
 ```plaintext
 🎥 Streamers da FURIA:
-- Brino: https://twitch.tv/brino
-- Paula Nobre: https://twitch.tv/paulanobre
-- Rafinha: https://twitch.tv/raf1nhafps
-💰 Ganhou $0,10 FURIA Cash! Saldo: $0,60
+Brino: https://www.twitch.tv/brino
+Cris Guedes: https://www.twitch.tv/crisguedes
+Ivd Maluco: https://www.twitch.tv/ivdmaluco
+Manel: https://www.twitch.tv/omanelzin_
+Murillo: https://www.twitch.tv/murillomellobr
+Noobzim: https://www.twitch.tv/noooobzim
+Paula Nobre: https://www.twitch.tv/paulanobre
+Pokiz: https://www.twitch.tv/pOkizGames
+Rafinha: https://www.twitch.tv/raf1nhafps
+Sofia Espanha: https://www.twitch.tv/sofiaespanha/
+Thiago sem T: https://www.twitch.tv/thiagosemtlives, https://www.youtube.com/@thiagosemt
+Xarola: https://www.twitch.tv/xarola_
+
+💰 Ganhou $0,10 FURIA Cash! Saldo: $0.10
 ⚠ FuriaBot em beta, pode ter uns bugs!
 ```
 
@@ -206,9 +236,10 @@ C) yuurih
 **RESPOSTA**
 
 ```plaintext
-🛒 Loja da Pantera: https://loja.furia.gg
+🛒 Loja da Pantera: https://furia.gg
 Confere os looks brabos! 😎
-💰 Ganhou $0,10 FURIA Cash! Saldo: $0,70
+
+💰 Ganhou $0,10 FURIA Cash! Saldo: $0.10
 ⚠ FuriaBot em beta, pode ter uns bugs!
 ```
 
